@@ -1,0 +1,32 @@
+<ion-row>
+  <ion-item style="margin-left: 260px;" color="#fcba03" lines="none">
+    <ion-label>
+      Reverse
+    </ion-label>
+    <ion-checkbox style="margin-left: 10px;" [(ngModel)]="reverse"></ion-checkbox>
+  </ion-item>
+</ion-row>
+<ion-grid style="margin-top:230px; min-width:200px;">
+  <ion-row>
+    <h1 *ngIf="!reverse || showValue" style="margin-left:50px; margin-right:50px;">{{key}}</h1>
+    <h1 *ngIf="reverse && !showValue && key" style="margin-left:50px; margin-right:50px;" (click)="showValue = true">
+      Show answer
+    </h1>
+  </ion-row>
+  <ion-row style="margin-top:50px">
+    <p *ngIf="reverse || showValue" style="margin-left:50px; margin-right:50px;">
+      {{value}}
+    </p>
+    <p *ngIf="!reverse && !showValue && key" style="margin-left:50px; margin-right:50px;" (click)="showValue = true">
+      Show answer
+    </p>
+    <p *ngIf="!key">
+      Enter new words
+    </p>
+  </ion-row>
+</ion-grid>
+
+<ion-row style="margin-bottom: 50px;" *ngIf="key">
+  <ion-button style="margin-left: 50px;" (click)='remove()'>X</ion-button>
+  <ion-button style="margin-left: 180px;" (click)='next()'>Next</ion-button>
+</ion-row>

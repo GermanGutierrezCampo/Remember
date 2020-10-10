@@ -1,0 +1,12 @@
+
+  <ion-grid style="margin-top:150px">
+    <ion-row>
+      <ion-textarea [(ngModel)]='key' placeholder="Word" rows="1" style='background: white'>
+      </ion-textarea>
+    </ion-row>
+    <ion-row style="margin-top:50px">
+      <ion-textarea [(ngModel)]='value' placeholder="Definition" rows="12" style='background: white'>
+      </ion-textarea>
+    </ion-row>
+    <ion-button style="margin-left: 220px;" (click)='add()'>Add</ion-button>
+  </ion-grid>

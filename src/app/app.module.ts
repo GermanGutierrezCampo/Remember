@@ -15,11 +15,13 @@ import { FormsModule } from '@angular/forms';
 import { PracticePage } from './practice/practice.page';
 import { HomePage } from './home/home.page';
 import { EnterDataPage } from './enter-data/enter-data.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, EnterDataPage, HomePage, PracticePage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    HttpClientModule,
     CommonModule,
     FormsModule,
     IonicModule,

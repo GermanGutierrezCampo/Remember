@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
@@ -7,11 +8,10 @@ import { Storage } from '@ionic/storage';
 export class DictionaryService {
   lastKey = -1;
 
-  constructor(private storage: Storage) { 
+  constructor(private storage: Storage, private httpClient: HttpClient) { 
   }
 
   add(key: string, value: string) {
-    console.log('add', key, value);
     return this.storage.set(key, value);
   }
 
@@ -33,6 +33,14 @@ export class DictionaryService {
 
   remove(key: string) {
     return this.storage.remove(key);
+  }
+
+  loadDefault(){
+    this.httpClient.get<any>("assets/Vocabulary.json").subscribe((res) => {
+      Object.keys(res).forEach(key => {
+        this.add(key, res[key]);
+      });
+    });
   }
 
   private randomInteger(min, max) {
